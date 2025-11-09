@@ -90,7 +90,7 @@ export default function TrustedPartners() {
         {/* </CHANGE> */}
     {/* Marquee Section */}
     <div className={styles.marqueeSection}>
-          <h3 className={styles.marqueeTitle}>Trusted by Leading Universities</h3>
+          {/* <h3 className={styles.marqueeTitle}>Trusted by Leading Universities</h3> */}
           <div className={styles.marqueeContainer}>
             <div className={styles.marqueeTrack}>
               {[...universities, ...universities, ...universities].map((university, index) => (

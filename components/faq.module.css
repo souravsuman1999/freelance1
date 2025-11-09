@@ -47,7 +47,6 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
   overflow: hidden;
-  transition: all 0.3s ease;
 }
 
 .item:hover {
@@ -72,7 +71,6 @@
   font-size: 18px;
   font-weight: 600;
   text-align: left;
-  transition: all 0.2s ease;
 }
 
 .question:hover {
@@ -83,20 +81,27 @@
   font-size: 28px;
   font-weight: 300;
   color: rgba(99, 102, 241, 1);
-  transition: transform 0.3s ease;
   line-height: 1;
 }
 
-/* Smooth accordion animation using max-height instead of grid */
 .answer {
-  max-height: 0;
+  display: grid;
+  grid-template-rows: 0fr;
+  padding: 0 28px;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: grid-template-rows 0.3s ease, opacity 0.3s ease, transform 0.3s ease, padding 0.3s ease;
+}
+
+.answer > div {
   overflow: hidden;
-  transition: max-height 0.4s ease-out, padding 0.4s ease-out;
 }
 
 .item.open .answer {
-  max-height: 500px;
+  grid-template-rows: 1fr;
   padding: 0 28px 24px 28px;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .answer p {
@@ -129,6 +134,10 @@
 
   .icon {
     font-size: 24px;
+  }
+
+  .answer {
+    padding: 0 20px;
   }
 
   .item.open .answer {

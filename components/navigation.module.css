@@ -40,16 +40,19 @@
   gap: 32px;
 }
 
-.menu a {
+.navLink {
   color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
   font-size: 15px;
   font-weight: 500;
   transition: color 0.2s ease;
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
-.menu a::after {
+.navLink::after {
   content: "";
   position: absolute;
   bottom: -4px;
@@ -60,18 +63,238 @@
   transition: width 0.3s ease;
 }
 
-.menu a:hover {
+.navLink:hover {
   color: #fff;
 }
 
-.menu a:hover::after {
+.navLink:hover::after {
   width: 100%;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdownToggle {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.dropdownToggle:focus-visible {
+  outline: 2px solid rgba(99, 102, 241, 0.6);
+  outline-offset: 4px;
+}
+
+.caret {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid currentColor;
+  transition: transform 0.2s ease, color 0.2s ease;
+  margin-top: 2px;
+}
+
+.dropdownToggleActive,
+.dropdownToggleActive:hover {
+  color: #fff;
+}
+
+.dropdownToggleActive .caret {
+  transform: rotate(-180deg);
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 220px;
+  background: rgba(10, 10, 15, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+  padding: 12px 0;
+  opacity: 0;
+  transform: translateY(0);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  backdrop-filter: blur(12px);
+}
+
+.dropdownMenu a {
+  display: block;
+  padding: 10px 20px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.dropdownMenu a:hover {
+  color: #fff;
+  background: rgba(99, 102, 241, 0.12);
+}
+
+.dropdownMenuOpen {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .actions {
   display: flex;
   align-items: center;
   gap: 16px;
+}
+
+.mobileToggle {
+  display: none;
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 7px;
+  cursor: pointer;
+  transition: background 0.2s ease, border 0.2s ease;
+}
+
+.mobileToggle span {
+  width: 22px;
+  height: 2px;
+  border-radius: 999px;
+  background: #fff;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.mobileToggle:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.mobileToggleActive span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.mobileToggleActive span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobileToggleActive span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+.mobileMenu {
+  display: none;
+}
+
+.mobileMenuContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mobileMenuContent a {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mobileMenuContent a:last-child {
+  border-bottom: none;
+}
+
+.mobileMenuContent a:hover {
+  color: #fff;
+}
+
+.mobileDropdown {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 12px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobileDropdownToggle {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0;
+  cursor: pointer;
+  gap: 12px;
+}
+
+.mobileDropdownToggle:focus-visible {
+  outline: 2px solid rgba(99, 102, 241, 0.6);
+  outline-offset: 4px;
+}
+
+.mobileCaret {
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+  margin-top: -2px;
+}
+
+.mobileDropdownPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.2s ease;
+}
+
+.mobileDropdownPanel a {
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 0;
+  border-bottom: none;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.mobileDropdownPanel a:hover {
+  color: #fff;
+}
+
+.mobileDropdownOpen .mobileDropdownPanel {
+  max-height: 240px;
+  opacity: 1;
+}
+
+.mobileDropdownOpen .mobileCaret {
+  transform: rotate(-135deg);
+  margin-top: 0;
+}
+
+.mobileActions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
 }
 
 .login {
@@ -109,25 +332,57 @@
     padding: 0 16px;
   }
 
-  .menu {
-    display: none;
-  }
-
   .logo span {
     font-size: 20px;
   }
 
+  .menu,
   .actions {
-    gap: 12px;
+    display: none;
+  }
+
+  .mobileToggle {
+    display: flex;
+  }
+
+  .mobileMenu {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 24px 24px 32px;
+    gap: 8px;
+    background: rgba(10, 10, 15, 1);
+    backdrop-filter: blur(18px);
+    transform: translateY(-16px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    overflow-y: auto;
+  }
+
+  .mobileMenuOpen {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    height: 100vh;
   }
 
   .login {
-    font-size: 14px;
-    padding: 6px 12px;
+    font-size: 15px;
+    padding: 10px 16px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 8px;
+    text-align: center;
   }
 
   .signup {
-    font-size: 14px;
-    padding: 8px 16px;
+    width: 100%;
+    text-align: center;
+    padding: 12px 20px;
+    font-size: 16px;
   }
 }

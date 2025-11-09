@@ -1,0 +1,663 @@
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatOrb {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate3d(12px, -18px, 0) scale(1.05);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.6;
+  }
+}
+
+.page {
+  background: radial-gradient(circle at top center, rgba(99, 102, 241, 0.1), transparent 55%),
+    linear-gradient(180deg, #0a0a0f 0%, #111124 45%, #0b0b15 100%);
+  min-height: 100vh;
+  color: #fff;
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.hero {
+  position: relative;
+  padding: 140px 0 80px;
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -20% -40%;
+  background: radial-gradient(circle, rgba(79, 70, 229, 0.12) 0%, transparent 60%);
+  filter: blur(0);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 10%;
+  right: 12%;
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.22) 0%, transparent 70%);
+  filter: blur(18px);
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.heroGlow {
+  position: absolute;
+  bottom: -180px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 680px;
+  height: 680px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.18) 0%, transparent 70%);
+  filter: blur(10px);
+  animation: floatOrb 9s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.sectionBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  color: #c7d2ff;
+  font-size: 14px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.heroTitle {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  margin-bottom: 24px;
+}
+
+.heroHighlight {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.9) 0%, rgba(139, 92, 246, 0.85) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.heroSubtitle {
+  font-size: 20px;
+  line-height: 1.7;
+  color: rgba(229, 231, 235, 0.75);
+  margin: 0 auto 36px;
+  max-width: 620px;
+}
+
+.heroActions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.primaryCta,
+.secondaryCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 32px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease,
+    background 0.3s ease;
+  min-width: 220px;
+}
+
+.primaryCta {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: #fff;
+  box-shadow: 0 18px 36px rgba(99, 102, 241, 0.35);
+}
+
+.primaryCta:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px rgba(99, 102, 241, 0.45);
+}
+
+.secondaryCta {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(178, 180, 255, 0.2);
+  color: #e0e7ff;
+}
+
+.secondaryCta:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(178, 180, 255, 0.35);
+  box-shadow: 0 18px 38px rgba(79, 70, 229, 0.25);
+}
+
+.heroMetrics {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.metric {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
+  border-radius: 12px;
+  background: rgba(15, 15, 30, 0.7);
+  border: 1px solid rgba(99, 102, 241, 0.18);
+  backdrop-filter: blur(16px);
+  color: rgba(226, 232, 240, 0.85);
+  font-size: 15px;
+}
+
+.metric strong {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.section {
+  position: relative;
+  padding: 80px 0;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.sectionTitle {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin-bottom: 16px;
+}
+
+.sectionSubtitle {
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(226, 232, 240, 0.72);
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.stepsSection {
+  background: linear-gradient(180deg, rgba(13, 13, 26, 0.9) 0%, rgba(10, 10, 18, 0.95) 100%);
+  border-top: 1px solid rgba(99, 102, 241, 0.1);
+  border-bottom: 1px solid rgba(99, 102, 241, 0.08);
+}
+
+.stepsList {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: step;
+}
+
+.stepCard {
+  position: relative;
+  padding: 32px 28px;
+  border-radius: 20px;
+  background: rgba(20, 20, 38, 0.8);
+  border: 1px solid rgba(99, 102, 241, 0.22);
+  box-shadow: 0 18px 34px rgba(13, 13, 35, 0.35);
+  transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease,
+    box-shadow 0.35s ease;
+  overflow: hidden;
+}
+
+/* .stepCard::before {
+  counter-increment: step;
+  content: "0" counter(step);
+  position: absolute;
+  top: 22px;
+  right: 24px;
+  font-size: 42px;
+  font-weight: 700;
+  color: rgba(99, 102, 241, 0.12);
+} */
+
+.stepCard::after {
+  content: "";
+  position: absolute;
+  inset: -40% -20%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 55%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.stepCard:hover {
+  transform: translateY(-6px);
+  border-color: rgba(99, 102, 241, 0.45);
+  background: rgba(28, 28, 52, 0.9);
+  box-shadow: 0 28px 48px rgba(19, 19, 43, 0.45);
+}
+
+.stepCard:hover::after {
+  opacity: 1;
+}
+
+.stepTitle {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  letter-spacing: -0.3px;
+}
+
+.stepDescription {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(226, 232, 240, 0.78);
+}
+
+.loveSection .sectionSubtitle {
+  color: rgba(226, 232, 240, 0.68);
+}
+
+.loveSection {
+  background: transparent;
+  border-top: none;
+}
+
+.loveCard {
+  position: relative;
+  padding: 48px 48px 56px;
+  border-radius: 28px;
+  background: rgba(14, 14, 34, 0.88);
+  border: 1px solid rgba(99, 102, 241, 0.22);
+  box-shadow: 0 32px 68px rgba(8, 8, 20, 0.6);
+  backdrop-filter: blur(28px);
+  overflow: hidden;
+}
+
+
+
+.loveCard::after {
+  content: "";
+  position: absolute;
+  bottom: -140px;
+  right: -100px;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.18) 0%, transparent 70%);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.loveCard .sectionHeader {
+  margin-bottom: 48px;
+  position: relative;
+  z-index: 1;
+}
+
+.loveCard .sectionSubtitle {
+  max-width: 540px;
+}
+
+.loveCard .featuresGrid {
+  position: relative;
+  z-index: 1;
+}
+
+.universitiesSection {
+  background: linear-gradient(180deg, rgba(12, 12, 26, 0.92) 0%, rgba(8, 8, 18, 0.95) 100%);
+  border-top: 1px solid rgba(99, 102, 241, 0.08);
+}
+
+.universityGrid {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.universityCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 32px 28px;
+  border-radius: 20px;
+  background: rgba(16, 16, 36, 0.82);
+  border: 1px solid rgba(99, 102, 241, 0.16);
+  box-shadow: 0 22px 44px rgba(9, 9, 28, 0.45);
+  transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease,
+    box-shadow 0.35s ease;
+    width: 31.7%;
+}
+
+.universityCard:hover {
+  transform: translateY(-8px);
+  border-color: rgba(99, 102, 241, 0.32);
+  background: rgba(22, 22, 44, 0.9);
+  box-shadow: 0 32px 64px rgba(12, 12, 36, 0.55);
+}
+
+.universityName {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  margin-bottom: 20px;
+}
+
+.universityMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.metaLabel {
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: rgba(199, 210, 254, 0.68);
+}
+
+.metaValue {
+  font-size: 20px;
+  font-weight: 600;
+  color: #f8fafc;
+}
+
+.matchPotential {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  color: rgba(199, 210, 254, 0.85);
+  margin-bottom: 20px;
+}
+
+.matchSummary {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(226, 232, 240, 0.78);
+}
+
+.cardDivider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(148, 163, 255, 0.35) 50%, transparent 100%);
+}
+
+.cardButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #f8fafc;
+  background: rgba(79, 70, 229, 0.3);
+  border: 1px solid rgba(129, 140, 248, 0.45);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+}
+
+.cardButton:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.85) 0%, rgba(129, 140, 248, 0.85) 100%);
+  border-color: rgba(165, 180, 252, 0.6);
+  box-shadow: 0 16px 28px rgba(99, 102, 241, 0.35);
+}
+
+.featuresGrid {
+  display: grid;
+  gap: 28px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.featureCard {
+  position: relative;
+  padding: 36px 30px;
+  border-radius: 22px;
+  background: rgba(16, 16, 32, 0.78);
+  border: 1px solid rgba(99, 102, 241, 0.18);
+  box-shadow: 0 20px 42px rgba(12, 12, 28, 0.45);
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+  overflow: hidden;
+  backdrop-filter: blur(18px);
+}
+
+.featureCard::after {
+  content: "";
+  position: absolute;
+  inset: -45% -25%;
+  background: radial-gradient(circle at top, rgba(139, 92, 246, 0.16) 0%, transparent 65%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.featureCard:hover {
+  transform: translateY(-8px);
+  border-color: rgba(139, 92, 246, 0.4);
+  box-shadow: 0 30px 60px rgba(18, 18, 40, 0.55);
+}
+
+.featureCard:hover::after {
+  opacity: 1;
+}
+
+.featureTitle {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  margin-bottom: 14px;
+}
+
+.featureDescription {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(226, 232, 240, 0.78);
+  margin-bottom: 22px;
+}
+
+.featureStat {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #e0e7ff;
+  background: rgba(99, 102, 241, 0.18);
+  border: 1px solid rgba(99, 102, 241, 0.32);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.fadeInUp {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: fadeInUp 0.85s ease forwards;
+}
+
+.delay100 {
+  animation-delay: 0.1s;
+}
+
+.delay200 {
+  animation-delay: 0.2s;
+}
+
+.delay300 {
+  animation-delay: 0.3s;
+}
+
+.delay400 {
+  animation-delay: 0.4s;
+}
+
+.delay500 {
+  animation-delay: 0.5s;
+}
+
+@media (max-width: 1024px) {
+  .heroTitle {
+    font-size: 50px;
+  }
+
+  .sectionTitle {
+    font-size: 40px;
+  }
+
+  .section {
+    padding: 100px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .hero {
+    padding: 160px 0 100px;
+    display: block;
+    height: unset;
+  }
+
+  .heroTitle {
+    font-size: 40px;
+    letter-spacing: -1px;
+  }
+
+  .heroSubtitle {
+    font-size: 18px;
+  }
+
+  .heroActions {
+    flex-direction: column;
+  }
+
+  .primaryCta,
+  .secondaryCta {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .section {
+    padding: 60px 0 !important;
+  }
+
+  .sectionTitle {
+    font-size: 32px;
+  }
+
+  .sectionSubtitle {
+    font-size: 16px;
+  }
+
+  .stepCard {
+    padding: 28px 24px;
+  }
+
+  .universityCard {
+    padding: 28px 24px;
+  }
+
+  .matchSummary {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .cardButton {
+    width: 100%;
+  }
+
+  .universityGrid {
+  flex-wrap: nowrap;
+  overflow: auto;
+  gap: 16px;
+  }
+  .universityCard{
+    min-width: 300px;
+  }
+
+  .universityCard {
+    width: 100%;
+  }
+  .universitiesSection {
+    border-top: 1px solid rgb(30, 32, 74);
+  }
+.loveCard , .featureCard{
+    padding: 20px;
+}
+}
+
+@media (max-width: 500px) {
+  .heroTitle {
+    font-size: 34px;
+  }
+
+  .heroSubtitle {
+    font-size: 17px;
+  }
+
+  .sectionBadge {
+    font-size: 12px;
+    padding: 6px 14px;
+  }
+
+  .sectionTitle {
+    font-size: 28px;
+  }
+}
+
