@@ -147,10 +147,10 @@ export default function Navigation() {
         </div>
 
         <div className={styles.actions}>
-          <Link href="#login" className={styles.login}>
+          <Link href="/login" className={styles.login}>
             Log In
           </Link>
-          <Link href="#signup" className={styles.signup}>
+          <Link href="/signup" className={styles.signup}>
             Sign Up
           </Link>
         </div>
@@ -198,10 +198,10 @@ export default function Navigation() {
           </Link>
         </div>
         <div className={styles.mobileActions}>
-          <Link href="#login" className={styles.login} onClick={closeMobileMenu}>
+          <Link href="/login" className={styles.login} onClick={closeMobileMenu}>
             Log In
           </Link>
-          <Link href="#signup" className={styles.signup} onClick={closeMobileMenu}>
+          <Link href="/signup" className={styles.signup} onClick={closeMobileMenu}>
             Sign Up
           </Link>
         </div>

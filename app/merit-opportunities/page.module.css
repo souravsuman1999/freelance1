@@ -40,10 +40,12 @@
 }
 
 .title {
-  color: #ffffff;
-  font-size: clamp(38px, 5vw, 48px);
-  line-height: 1.1;
-  margin: 0;
+  font-size: 42px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 120%;
+  margin-bottom: 8px;
+  letter-spacing: -0.3px;
 }
 
 .description {
@@ -209,17 +211,18 @@
 }
 
 .cardButton {
-  margin-top: auto;
-  align-self: center;
-  padding: 10px 24px;
-  color: #ffe266;
-  background: linear-gradient(135deg, rgb(99, 102, 241) 0%, rgb(139, 92, 246) 100%);
+  color: #f8fafc;
+  background: #4f46e54d;
+  border: 1px solid #818cf873;
   border-radius: 999px;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 24px;
   font-size: 15px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-  z-index: 1;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform .3s, box-shadow .3s, background .3s, border-color .3s;
+  display: inline-flex;
 }
 
 .cardButton:hover {
